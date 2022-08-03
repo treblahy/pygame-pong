@@ -1,4 +1,5 @@
 import pygame
+import time
 
 #make a window 800*600
 pygame.init()
@@ -23,11 +24,7 @@ while running:
             running = False
     
     screen.fill(bg_color)
- 
-    if not running:
-        pygame.time.wait(3000)
-        break
-   
+  
     #ball movement
     if not init:
         ball_x = 400
@@ -119,17 +116,29 @@ while running:
 
     #loop
     if left_score == 10:
+        screen.fill((0,0,0))
         textWin = font.render("Left wins", True, (255,255,255))
         screen.blit(textWin, (270,275))
         text_left_score = font.render(str(10), True, (255,255,255))
+        screen.blit(text_left_score, (187,50))
+        text_right_score = font.render(str(right_score), True, (255,255,255))
+        screen.blit(text_right_score, (587,50))
+        pygame.display.update()
+        time.sleep(3)
         running = False
     if right_score == 10:
+        screen.fill((0,0,0))
         textWin = font.render("Right wins", True, (255,255,255))
         screen.blit(textWin, (270,275))
         text_right_score = font.render(str(10), True, (255,255,255))
+        screen.blit(text_right_score, (570,50))
+        text_left_score = font.render(str(left_score), True, (255,255,255))
+        screen.blit(text_left_score, (187,50))
+        pygame.display.update()
+        time.sleep(3)
         running = False
-        
-    #set 60 fps
+       
+    #sest 60 fps
     clock.tick(60)
 
     #display fps
