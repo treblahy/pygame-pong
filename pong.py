@@ -107,12 +107,14 @@ while running:
         ball_y = 300
         ball_x_change = 9
         ball_y_change = 0
+        time.sleep(1)
     if ball_x >= 850:
         left_score += 1
         ball_x = 400
         ball_y = 300
         ball_x_change = -9
         ball_y_change = 0
+        time.sleep(1)
 
     #loop
     if left_score == 10:
